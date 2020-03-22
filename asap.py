@@ -5,6 +5,7 @@ timeslot_1=[];
 timeslot=[];
 waitingslot=[];
 done=[];
+
 with open('graph.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
@@ -18,6 +19,7 @@ with open('graph.csv') as csv_file:
     for i in timeslot_1:
         done.append(i[0])
         print(i[0])
+        
 print('In the next time slot,these operations are done')        
 with open('graph.csv') as csv_file:
     printing=[]
@@ -36,6 +38,7 @@ with open('graph.csv') as csv_file:
     printing=(list(dict.fromkeys(printing)))
     for i in printing:
         print(i)
+        
 with open('graph.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
@@ -64,6 +67,7 @@ with open('graph.csv') as csv_file:
         for i in printing:
             print(i)
 #ASAP DONE
+
 inputs=[];
 outputs=[];
 
@@ -71,6 +75,7 @@ with open('graph.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     num = Counter(i for j in csv_reader for i in j) 
     dup = [k for k, v in num.items() if v > 1]
+    
 with open('graph.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
@@ -85,7 +90,9 @@ with open('graph.csv') as csv_file:
     outputs1.sort()
     #for i in outputs:
      #   print(i)
+        
 file1 = open("verilog.v","w+")
+
 file1.write("module(input ")
 for item in inputs:
         file1.write("%s" % item)
@@ -100,7 +107,6 @@ file1.truncate()
 file1.write(");\n")
 #module declaration done
 
-
 with open('graph.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for row in csv_reader:
@@ -110,5 +116,7 @@ with open('graph.csv') as csv_file:
             file1.write('assign '+ row[4] + '=' + row[2] +'+' +row[3]+';\n')
         else:
             file1.write('assign '+ row[4] + '=' + row[2] +'-' +row[3]+';\n')
+            
 file1.write('endmodule;')
+
 file1.close()
