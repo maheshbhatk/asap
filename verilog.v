@@ -1,0 +1,11 @@
+module(input A1,A2 ,A3,A4,B1,B2,B3,B4,C1,C2,C3,output Y1,Y2);
+assign X1=A1*B1;
+assign X2=A2 *B2;
+assign X3=A3*B3;
+assign X4=A4*B4;
+assign X5=X1-X2;
+assign X6=X3*C1;
+assign Y1=X4-C2;
+assign X7=X5-C3;
+assign Y2=X6-X7;
+endmodule;
