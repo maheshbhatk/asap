@@ -48,6 +48,7 @@ with open('graph.csv') as csv_file:
             else:
                 waitingslot.append(row)
     #print(waitingslot)
+    
     while(len(waitingslot)!=0):
         printing=[];
         print('Next time slot,these operations are done')
@@ -67,9 +68,9 @@ with open('graph.csv') as csv_file:
         for i in printing:
             print(i)
 #ASAP DONE
-
-inputs=[];
-outputs=[];
+#writing the verilog.v file below
+inputs=[];          #the inputs in the verilog module
+outputs=[];         #the outputs in the verilog module
 
 with open('graph.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
